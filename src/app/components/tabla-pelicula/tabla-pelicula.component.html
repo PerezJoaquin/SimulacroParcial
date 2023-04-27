@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm">Foto</div>
+        <div class="col-sm">Nombre</div>
+        <div class="col-sm">Tipo</div>
+        <div class="col-sm">Fecha de estreno</div>
+        <div class="col-sm">Cantidad de publico</div>
+        <div class="col-sm"></div>
+    </div>
+    <div *ngFor="let pelicula of peliculas">
+        <div class="row">
+            <div class="col-sm">
+                {{pelicula.foto}}
+            </div>
+            <div class="col-sm">
+                {{pelicula.nombre}}
+            </div>
+            <div class="col-sm">
+                {{pelicula.tipo}}
+            </div>
+            <div class="col-sm">
+                {{pelicula.fechaDeEstreno}}
+            </div>
+            <div class="col-sm">
+                {{pelicula.cantidadDePublico}}
+            </div>
+            <div class="col-sm">
+                <button class="btn btn-secondary" (click)="enviarObjeto(pelicula)">Seleccionar</button>
+            </div>
+            
+            <!--div class="col-sm">
+                Marca: {{producto.marca}} | Precio: ${{producto.precio}} | Stock: {{producto.stock}}
+            </div-->
+        
+        
+        </div>
+    </div>
+</div>
