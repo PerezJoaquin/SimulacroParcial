@@ -1,0 +1,12 @@
+<div id="right-col">
+    <div id="inner-right">
+        <div *ngFor="let pais of paises">
+            <div (click)="select(pais)" style="padding:5px">
+                
+                <img src="{{pais.flags.png}}" style="width:50px">
+                    {{pais.name.common}}
+                    <hr class="mb-3">
+            </div>
+        </div>
+    </div>
+</div>

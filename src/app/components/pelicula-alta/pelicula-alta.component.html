@@ -1,1 +1,114 @@
-<p>pelicula-alta works!</p>
+<div class="container">
+    <div class="d-flex justify-content-center" *ngIf="showbar">
+        <div class="spinner-border" role="status" >
+          <span class="sr-only" id="loading"></span>
+        </div>
+      </div>
+    <br><br>
+    <div class="row">
+      <div class="col-md-4 order-md-2 mb-4">
+        <h4 class="mb-3">Actores</h4>
+        <app-actor-listado (EnviarActor)="pasarActor($event)"></app-actor-listado>
+      </div>
+      <div class="col-md-8 order-md-1">
+        <h4 class="mb-3">Subir una pelicula</h4>
+        <form class="needs-validation" [formGroup]="forma"  (ngSubmit)="guardar()">
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="nombre">Nombre</label>
+              <input type="text" class="form-control" placeholder="" #nombre  formControlName="nombre" [(ngModel)]="peliculaNombre">
+              <small class="invalid"
+                *ngIf="forma.controls.nombre.errors?.required &&
+                forma.controls.nombre.touched">
+                El nombre es requerido<br>
+              </small>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="tipo">Tipo</label>
+              <input type="text" class="form-control"  placeholder="" #tipo formControlName="tipo" [(ngModel)]="peliculaTipo">
+              <small class="invalid"
+                *ngIf="forma.controls.tipo.errors?.required &&
+                forma.controls.tipo.touched">
+                El tipo es requerido<br>
+              </small>
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="col-md-6 mb-3">
+                <!--label for="fecha">Fecha</label>
+                <input type="text" class="form-control"  placeholder="" #fecha formControlName="fecha" [(ngModel)]="peliculaFecha">
+                <small class="invalid"
+                    *ngIf="forma.controls.fecha.errors?.required &&
+                    forma.controls.fecha.touched">
+                    La fecha es requerida<br>
+                </small-->
+                <label for="publico">Publico</label> 
+                <input type="number" class="form-control"  placeholder="" #publico formControlName="publico" [(ngModel)]="peliculaPublico">
+                <small class="invalid"
+                *ngIf="forma.controls.publico.errors?.required &&
+                forma.controls.publico.touched">
+                El publico es requerido<br>
+                </small>
+                
+                  
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="actor">Actor</label>
+                <input type="text" class="form-control" placeholder="Seleccione un actor de la lista ->" #pais [(ngModel)]="actornombre" formControlName="actor" >
+                <small class="invalid"
+                *ngIf="forma.controls.actor.errors?.required &&
+                forma.controls.actor.touched">
+                El actor es requerido<br>
+                </small>
+            </div>
+          </div>
+  
+          <div class="row">
+            <div class="col-md-6 mb-3">
+                
+                    <label for="fecha">Fecha de salida</label><br>
+                    <ngb-datepicker #dp [(ngModel)]="model" (navigate)="date = $event.next" (click)="updateDate()" formControlName="fecha"></ngb-datepicker>
+                  
+                
+                  
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="fecha">Foto</label><br>
+                <div class="form-group col-12">
+                    <input type="file"
+                    id="file"
+                    #userPhoto
+                    (change)="onFileSelected($event)"
+                    name="image"
+                    autocomplete="off"
+                    class="btn btn-primary btn-lg btn-block"
+                    accept="image/*"
+                    />
+                </div>
+                <img [src]="newimage" style="height:200px">
+            </div>
+          </div>
+  
+          
+
+               
+          
+          
+          <hr class="mb-3">
+          <button type="submit"
+            class="btn btn-primary btn-lg btn-block"
+            [disabled]="forma.invalid || !forma.controls.fecha.value || !peli.foto || !actorPasado">
+            Subir
+          </button>
+
+          <!--button class="btn btn-primary btn-lg btn-block" type="submit" >Subir</button-->
+
+          
+        </form>
+        
+        <!--div *ngIf="showbar">asdasdasdasasdasdasd</div>
+        <pre>Model: {{ model | json }}</pre-->
+      </div>
+    </div>
+  </div>

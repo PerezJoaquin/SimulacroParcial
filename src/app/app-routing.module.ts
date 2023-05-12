@@ -8,6 +8,7 @@ import { BienvenidoComponent } from './components/bienvenido/bienvenido.componen
 import { BusquedaComponent } from './components/busqueda/busqueda.component';
 import { PeliculaAltaComponent } from './components/pelicula-alta/pelicula-alta.component';
 import { PeliculaListadoComponent } from './components/pelicula-listado/pelicula-listado.component';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
   {path: "actor/alta", component:ActorAltaComponent},
@@ -16,6 +17,8 @@ const routes: Routes = [
   {path: "busqueda", component:BusquedaComponent},
   {path: "pelicula/alta", component:PeliculaAltaComponent},
   {path: "actor/listado", component:PeliculaListadoComponent},
+  {path: "login", component:LoginComponent},
+  {path: "**", component:BusquedaComponent},
 ];
 
 @NgModule({

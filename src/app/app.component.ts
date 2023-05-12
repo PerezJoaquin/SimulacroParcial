@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FiredbService } from './servicios/firedb.service';
 
 @Component({
   selector: 'app-root',
@@ -6,7 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+
   title = 'simulacroParcial';
+
+  constructor(private fdb:FiredbService){
+    fdb.traerActores();
+    fdb.traerPeliculas();
+  }
 
   database = [
     {id:"1",

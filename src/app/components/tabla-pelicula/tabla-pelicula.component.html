@@ -1,4 +1,4 @@
-<div class="container">
+<!--div class="container">
     <div class="row">
         <div class="col-sm">Foto</div>
         <div class="col-sm">Nombre</div>
@@ -10,7 +10,7 @@
     <div *ngFor="let pelicula of peliculas">
         <div class="row">
             <div class="col-sm">
-                {{pelicula.foto}}
+                <img src="{{pelicula.foto}}" style="height:100px">
             </div>
             <div class="col-sm">
                 {{pelicula.nombre}}
@@ -26,13 +26,28 @@
             </div>
             <div class="col-sm">
                 <button class="btn btn-secondary" (click)="enviarObjeto(pelicula)">Seleccionar</button>
-            </div>
-            
-            <!--div class="col-sm">
-                Marca: {{producto.marca}} | Precio: ${{producto.precio}} | Stock: {{producto.stock}}
-            </div-->
-        
-        
+            </div>    
         </div>
+    </div>
+</div-->
+
+<div class="container">
+    <div class="row row-cols-6">
+        <div class="col">Foto</div>
+        <div class="col">Nombre</div>
+        <div class="col">Tipo</div>
+        <div class="col">Fecha de estreno</div>
+        <div class="col">Cantidad de publico</div>
+        <div class="col">Seleccionar</div>
+        
+    </div>
+    <hr class="mb-3">
+    <div class="row row-cols-6" *ngFor="let pelicula of peliculas">
+        <div class="col"><img src="{{pelicula.foto}}" style="height:100px"></div>
+        <div class="col">{{pelicula.nombre}}</div>
+        <div class="col">{{pelicula.tipo}}</div>
+        <div class="col">{{pelicula.fechaDeEstreno}}</div>
+        <div class="col">{{pelicula.cantidadDePublico}}</div>
+        <div class="col"><button class="btn btn-secondary" (click)="enviarObjeto(pelicula)">Seleccionar</button></div>
     </div>
 </div>
